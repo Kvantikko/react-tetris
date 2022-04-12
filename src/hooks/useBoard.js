@@ -1,5 +1,5 @@
 import { useState } from "react"
-import buildBoard from "../utils/Board"
+import buildBoard from "../business/Board"
 
 const useBoard = ({rows, columns}) => {
     const [board, setBoard] = useState([buildBoard({rows, columns})])
