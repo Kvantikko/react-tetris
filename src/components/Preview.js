@@ -1,4 +1,4 @@
-//import "./Preview.css"
+import "./Preview.css"
 
 import React from "react"
 
@@ -20,23 +20,24 @@ const Preview = ({ tetromino, index }) => {
     
 
     const style = { 
-        position: 'absolute',
+       // position: 'absolute',
         //top: '0',
-        left: '72.2vw',
-        background: 'rgba(0, 0, 0, 0.1)',
-        border: '10px solid rgba(0, 0, 0, 0)',
-        borderRadius: '10px',
-        top: `${index * 15}vw` 
+       // left: '65vw',
+        ////// borderRadius: '10px',
+        top: `${index * 7}vw` 
     }
 
     const boardStyle = {
-        //margin: '2em auto',
+        /*
+        margin: '2em auto',
         display: 'grid',
-        width: '11vw',
-        height: '11vw',
+        
+        height: '7vw',
+        width: '7vw',
         border: '10px solid rgb(32, 0, 64)',
         borderRadius: '10px',
         boxShadow: 'rgba(255, 255, 255, 0.35) 0px 5px 15px',
+        */
         // Makes the CSS grid template repeat
         gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
         gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`
@@ -62,8 +63,8 @@ const Preview = ({ tetromino, index }) => {
     //console.log('Preview ', board.rows);
 
     return(
-        <div className="Preview" style={style}>
-            <div className="Preview-board" style={boardStyle}>
+        <div className="Preview" style={style} >
+            <div className="Preview-board" style={boardStyle} >
                 {board.rows.map((row, y) =>
                     row.map((cell, x) => (
                         <BoardCell key={x * board.size.columns + x } cell={cell} />

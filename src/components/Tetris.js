@@ -22,10 +22,17 @@ const Tetris = ({ rows, columns, setGameOver }) => {
         addLinesCleared })
 
     //console.log('Tetris',  player.tetrominoes);
+
+    const style = { 
+        backgroundColor: 'yellow',
+       
+        //overFlow: 'hidden'
+        // display: 'inline-block' 
+    }
   
     return (
-        <div className="Tetris">
-            <div>Press Q to quit</div>
+        <div className="Tetris" style={style}>
+            
             <Board board={board} />
             <GameStats gameStats={gameStats} />
             <Previews previewTetrominoes={player.previewTetrominoes}  />

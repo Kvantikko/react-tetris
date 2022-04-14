@@ -1,7 +1,7 @@
 .Preview {
     position: absolute;
     top: 0;
-    left: 72.2vw;
+    left: 63%;
     background: rgba(0, 0, 0, 0.1);
     border: 10px solid rgba(0, 0, 0, 0);
     border-radius: 10px;
@@ -11,6 +11,7 @@
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    width: 11vw;
-    height: 11vw;
+    height: 5vw;
+    width: 5vw;
+    
 }
