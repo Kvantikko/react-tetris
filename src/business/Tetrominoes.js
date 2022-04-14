@@ -147,7 +147,7 @@ export const rotate = ({ shape, direction }) => {
 
   
     // Reverse rows to get a rotated matrix NEEEDED???
-    //if (direction > 0) return newShape.map((row) => row.reverse())
+    if (direction > 0) return newShape.map((row) => row.reverse())
   
     return newShape.reverse();
 }
