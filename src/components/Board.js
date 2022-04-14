@@ -3,8 +3,8 @@
 import BoardCell from "./BoardCell"
 
 const Board = ({ board }) => {
-    console.log('boardddddd[0]', board[0]);
-    console.log('board' , board)
+    //console.log('boardddddd[0]', board[0]);
+    //console.log('board' , board)
 
     const boardX = board
     

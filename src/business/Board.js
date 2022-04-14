@@ -23,7 +23,7 @@ export const buildBoard = ({ rows, columns }) => {
 export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     const { tetromino, position } = player;
   
-    console.log('here in nextboard ', board[0]);
+    //console.log('here in nextboard ', board[0]);
     
     let rows = board.rows.map((row) =>
         row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
