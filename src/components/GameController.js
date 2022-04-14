@@ -1,6 +1,11 @@
 //import "./GameController.css"
 
 import { Action, actionForKey } from "../business/Input"
+import { playerController } from "../business/PlayerController"
+
+/**
+ * Hidden component that takes in keypresses
+ */
 
 const GameController = ({
     board,
@@ -10,22 +15,24 @@ const GameController = ({
     setPlayer,
 }) => {
     
-    // key comes up
-    const onKeyUp = ({ code }) => {
-        console.log('up', code);
-
-        const action = actionForKey(code)
-        
-        if (action === Action.Quit) {
-            console.log('controller ', setGameOver);
-            
-            setGameOver(true)
-        }
-    }
     // key goes down
     const onKeyDown = ({ code }) => {
-        console.log('down', code);
+        //console.log('key down: ', code)
+        const action = actionForKey(code)
         
+        if (action === Action.Quit) setGameOver(true)
+        
+        handleInput({ action })
+    }
+
+    const handleInput = ({ action }) => {
+        playerController({
+            action,
+            board,
+            player,
+            setPlayer,
+            setGameOver
+        })
     }
     
     return(
@@ -33,7 +40,7 @@ const GameController = ({
             className="GameController" 
             type="text"
             onKeyDown={onKeyDown}
-            onKeyUp={onKeyUp}
+            //onKeyUp={onKeyUp}
             autoFocus
         />
     )

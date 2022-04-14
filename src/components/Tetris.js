@@ -28,7 +28,7 @@ const Tetris = ({ rows, columns, setGameOver }) => {
             <div>Press Q to quit</div>
             <Board board={board} />
             <GameStats gameStats={gameStats} />
-            <Previews tetrominoes={player.tetrominoes}  />
+            <Previews previewTetrominoes={player.previewTetrominoes}  />
             <GameController
                 board={board}
                 gameStats={gameStats}

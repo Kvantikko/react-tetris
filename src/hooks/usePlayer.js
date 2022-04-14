@@ -4,38 +4,35 @@ import { randomTetromino } from "../business/Tetrominoes"
 
 const buildPlayer = (previous) => {
     let tetrominoes
-    //let playerTetronimo
 
   // jos on jo pelaaja
     if (previous) {
-        //console.log('vanha');
+        console.log('previous ', previous);
       
-        tetrominoes = [...previous.tetrominoes]
-        tetrominoes.unshift(randomTetromino()) // asetetaam yksi uusi tetronimo
+        tetrominoes = [...previous.previewTetrominoes]
+        tetrominoes.unshift(randomTetromino()) // asetetaa yksi uusi tetronimo preview taulukkoon
     } else { // luodaan uusi
-        //console.log('uusi')
         tetrominoes = Array(4).fill(null).map(index => {
-           
-            
             return randomTetromino()
         })
     }
 
     //console.log('tetrominoes', tetrominoes)
 
-    //playerTetronimo = 
-
-    //console.log('tetrominoesagain', tetrominoes)
+    const activeTetromino = tetrominoes.pop()
+    const previewTetrominoes = tetrominoes
 
     return {
         position: { row: 0, column: 4 },
-        tetrominoes, // previews
-        tetromino: tetrominoes.pop() // player tetro, pop makes console log weird
+        tetromino: activeTetromino,
+        previewTetrominoes
     }
 }
 
 const usePlayer = () => {
     const [player, setPlayer] = useState(buildPlayer())
+    console.log('usePlayer hook ', player);
+    
 
     const resetPlayer = useCallback(() => {
         setPlayer((prev) => buildPlayer(prev))

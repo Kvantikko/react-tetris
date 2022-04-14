@@ -2,18 +2,10 @@ import React from "react"
 
 import Preview from "./Preview"
 
-const Previews = ({ tetrominoes }) => {
+const Previews = ({ previewTetrominoes }) => {
 
-    //console.log("Previewsssss ", tetrominoes);
-    
-
-    // Halutaan kaikki paitsi viimeistä eli mitä pelaaja käyttää
-    // Ota eka pois ja sen jälkeen käännä järjestys
-    const previewTetrominoes = tetrominoes
-       
-
-    //console.log("sliced and reversed ", previewTetrominoes)
-
+   // console.log("Previewsssss ", previewTetrominoes);
+   
     return(
         <>
             {previewTetrominoes.map((tetromino, index) => (
