@@ -2,6 +2,11 @@ import Menu from "./Menu"
 import Tetris from "./Tetris"
 import useGameOver from "../hooks/useGameOver"
 
+/**
+ * Game component is the children component of App component. 
+ * It renders Menu or Tetris depending on gameOver state. 
+ */
+
 const Game = ({rows, columns}) => {
     const [gameOver, setGamerOver, resetGameOVer] = useGameOver()    
     
@@ -15,8 +20,11 @@ const Game = ({rows, columns}) => {
             {gameOver ? (
                 <Menu onClick={start} />
             ) : (
-                <Tetris rows={rows} columns={columns} setGamerOver={setGamerOver} />
-              
+                <Tetris 
+                    rows={rows} 
+                    columns={columns} 
+                    setGamerOver={setGamerOver} 
+                />
             )}
         </div>
     )
