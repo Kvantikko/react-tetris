@@ -8,12 +8,12 @@ const buildPlayer = (previous) => {
 
   // jos on jo pelaaja
     if (previous) {
-        console.log('vanha');
+        //console.log('vanha');
       
         tetrominoes = [...previous.tetrominoes]
         tetrominoes.unshift(randomTetromino()) // asetetaam yksi uusi tetronimo
     } else { // luodaan uusi
-        console.log('uusi')
+        //console.log('uusi')
         tetrominoes = Array(4).fill(null).map(index => {
            
             
@@ -21,7 +21,7 @@ const buildPlayer = (previous) => {
         })
     }
 
-    console.log('tetrominoes', tetrominoes)
+    //console.log('tetrominoes', tetrominoes)
 
     //playerTetronimo = 
 
@@ -41,7 +41,7 @@ const usePlayer = () => {
         setPlayer((prev) => buildPlayer(prev))
     }, [])
 
-    console.log('useplayer',player.tetrominoes);
+    //console.log('useplayer',player.tetrominoes);
     
     return [player, setPlayer, resetPlayer]
 }

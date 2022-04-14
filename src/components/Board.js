@@ -3,9 +3,14 @@
 import BoardCell from "./BoardCell"
 
 const Board = ({ board }) => {
-    //console.log('boardddddd', board);
+    console.log('boardddddd[0]', board[0]);
+    console.log('board' , board)
+
+    const boardX = board
     
-    //console.log(board.rows)
+    
+
+
     const boardStyle = {
         margin: '2em auto',
         display: 'grid',
@@ -15,15 +20,15 @@ const Board = ({ board }) => {
         borderRadius: '10px',
         boxShadow: 'rgba(255, 255, 255, 0.35) 0px 5px 15px',
         // Makes the CSS grid template repeat
-        gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
-        gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`
+        gridTemplateRows: `repeat(${boardX.size.rows}, 1fr)`,
+        gridTemplateColumns: `repeat(${boardX.size.columns}, 1fr)`
     }
 
     return (
         <div className="Board" style={boardStyle}>
-            {board.rows.map((row, y) => 
+            {boardX.rows.map((row, y) => 
                 row.map((cell, x) => (
-                    <BoardCell key={x* board.size.columns + x} cell={cell} />
+                    <BoardCell key={x* boardX.size.columns + x} cell={cell} />
                 ))
             )}
         </div>

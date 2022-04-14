@@ -4,7 +4,7 @@ import Preview from "./Preview"
 
 const Previews = ({ tetrominoes }) => {
 
-    console.log("Previewsssss ", tetrominoes);
+    //console.log("Previewsssss ", tetrominoes);
     
 
     // Halutaan kaikki paitsi viimeistä eli mitä pelaaja käyttää

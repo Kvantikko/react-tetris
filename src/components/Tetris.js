@@ -16,17 +16,18 @@ import usePlayer from "../hooks/usePlayer"
 const Tetris = ({ rows, columns, setGameOver }) => {
     // Hooks
     const [gameStats, addLinesCleared] = useGameStats()
-    const [board, setBoard] = useBoard({ rows, columns })
     const [player, setPlayer, resetPlayer] = usePlayer()
+    const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, 
+        addLinesCleared })
 
-    console.log('Tetris',  player.tetrominoes);
+    //console.log('Tetris',  player.tetrominoes);
     
   
     return (
         <div className="Tetris">
             <Board board={board} />
             <GameStats gameStats={gameStats} />
-            <Previews tetrominoes={player.tetrominoes} />
+            <Previews tetrominoes={player.tetrominoes}  />
         </div>
     )
 }

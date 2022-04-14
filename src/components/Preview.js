@@ -4,7 +4,7 @@ import React from "react"
 
 import BoardCell from "./BoardCell"
 
-import buildBoard from "../business/Board"
+import { buildBoard } from "../business/Board"
 import { transferToBoard } from "../business/Tetrominoes"
 
 /**
