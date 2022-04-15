@@ -24,7 +24,7 @@ const Preview = ({ tetromino, index }) => {
         //top: '0',
        // left: '65vw',
         ////// borderRadius: '10px',
-        top: `${index * 7}vw` 
+        top: `${index * 7 + 3 }vw` 
     }
 
     const boardStyle = {

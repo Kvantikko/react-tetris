@@ -50,8 +50,12 @@ const GameController = ({
             if (actionIsDrop(action)) {
                 pauseDropTime()
             }
-           
-
+            /*
+            if (!dropTime) {
+                return
+            }
+            
+            */
             handleInput({ action })
         }
         
@@ -74,6 +78,7 @@ const GameController = ({
             type="text"
             onKeyDown={onKeyDown}
             onKeyUp={onKeyUp}
+            tabIndex='0'
             autoFocus
         />
     )

@@ -30,7 +30,7 @@ const BoardCell = ({ cell }) => {
             color = 'rgba(240, 80, 195, 1)'
             break;
         default:
-            color = 'rgb(128, 0, 0)'
+            color = 'rgb(0, 0, 0)'
     }
 
     const cellStyle = {
@@ -41,7 +41,7 @@ const BoardCell = ({ cell }) => {
     
     return (
         <div className={`BoardCell ${cell.className}`} style={cellStyle}>
-            <>c</>
+            <></>
         </div>
     )
 

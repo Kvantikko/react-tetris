@@ -15,9 +15,16 @@ const Game = ({ rows, columns }) => {
         console.log(`start game over is ${gameOver}`)
         resetGameOVer()
     }
+
+   
+    const style = { 
+        backgroundColor: 'black',
+        height: '100%'
+    }
+    
         
     return (
-        <div className="Game">
+        <div className="Game" style={style}>
             {gameOver ? (
                 <Menu onClick={start} />
             ) : (
