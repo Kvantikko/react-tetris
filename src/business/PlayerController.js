@@ -33,7 +33,7 @@ const tryToMove = ({ board, action, player, setPlayer, setGameOver }) => {
     // movement change: column +1 = right, column -1 = left, row +1 = down
     const delta = { row: 0, column: 0 } 
  
-    if (action === Action.AccelerateDrop) {
+    if (action === Action.Down) {
         delta.row += 1;
     } else if (action === Action.Left) {
         delta.column -= 1;

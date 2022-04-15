@@ -1,7 +1,10 @@
 //import "./GameController.css"
 
-import { Action, actionForKey } from "../business/Input"
+import { Action, actionForKey, actionIsDrop } from "../business/Input"
 import { playerController } from "../business/PlayerController"
+
+import useDropTime from "../hooks/useDropTime"
+import useInterval from "../hooks/useInterval"
 
 /**
  * Hidden component that takes in keypresses
@@ -14,13 +17,42 @@ const GameController = ({
     setGameOver,
     setPlayer,
 }) => {
+    const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
+        gameStats
+    })
+
+    useInterval(() => {
+        handleInput({ action: Action.Down })
+    }, dropTime)
+
+    // key comes up
+    const onKeyUp = ({ code }) => {
+        const action = actionForKey(code);
+        if (actionIsDrop(action)) resumeDropTime()
+      };
     
     // key goes down
     const onKeyDown = ({ code }) => {
         //console.log('key down: ', code)
         const action = actionForKey(code)
         
-        if (action === Action.Quit) setGameOver(true)
+        if (action === Action.Pause) {
+            if (dropTime) {
+                pauseDropTime()
+            } else {
+                resumeDropTime()
+            }
+        } else if (action === Action.Quit) {
+            setGameOver(true)
+        } else {
+            if (actionIsDrop(action)) {
+                pauseDropTime()
+            }
+            if (!dropTime) {
+                return
+            }
+            handleInput({ action })
+        }
         
         handleInput({ action })
     }
@@ -40,7 +72,7 @@ const GameController = ({
             className="GameController" 
             type="text"
             onKeyDown={onKeyDown}
-            //onKeyUp={onKeyUp}
+            onKeyUp={onKeyUp}
             autoFocus
         />
     )
