@@ -1,6 +1,8 @@
 .Tetris {
-    position: relative;
+  
     height: 100%;
     background-color: black;
     overflow: auto;
+    display: flex;
+     align-items: flex-start;
 }

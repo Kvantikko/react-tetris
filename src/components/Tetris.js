@@ -102,17 +102,36 @@ const Tetris = ({ rows, columns, setGameOver }) => {
 
 
 
-    
+    const style = {
+        //backgroundColor: 'red',
+        marginLeft: '1vw',
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: '4vh',
+        height: '90vh'
+       
+    }
+
+    const style2 = {
+        //backgroundColor: 'green'
+    }
 
    
   
     return (
-        <div className="Tetris" role="button" tabIndex='0' onKeyDown={onKeyDown} onKeyUp={onKeyUp}>
-            <Board board={board} />
-            <GameStats gameStats={gameStats} />
-            <Previews previewTetrominoes={player.previewTetrominoes}  />
+        <section className="Tetris" style={style2}  role="button" tabIndex='0' onKeyDown={onKeyDown} onKeyUp={onKeyUp}>
+            
            
-        </div>
+            <Board board={board}  />
+          
+            
+           
+                <div style={style}>
+                    <Previews previewTetrominoes={player.previewTetrominoes}  />
+                    <GameStats gameStats={gameStats} />
+                </div>
+           
+        </section>
     )
 }
 
