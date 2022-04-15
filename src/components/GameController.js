@@ -33,7 +33,7 @@ const GameController = ({
     
     // key goes down
     const onKeyDown = ({ code }) => {
-        //console.log('key down: ', code)
+        console.log('key down: ', code)
         const action = actionForKey(code)
         
         if (action === Action.Pause) {
@@ -45,16 +45,17 @@ const GameController = ({
         } else if (action === Action.Quit) {
             setGameOver(true)
         } else {
+            
+            console.log('droptime ', dropTime);
             if (actionIsDrop(action)) {
                 pauseDropTime()
             }
-            if (!dropTime) {
-                return
-            }
+           
+
             handleInput({ action })
         }
         
-        handleInput({ action })
+        //handleInput({ action })
     }
 
     const handleInput = ({ action }) => {

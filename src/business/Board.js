@@ -37,6 +37,28 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         shape: tetromino.shape
     })
 
+    // row clearing
+    const blankRow = rows[0].map((_) => ({ ...defaultCell }))
+    
+    let linesCleared = 0
+    
+    rows = rows.reduce((accumulator, row) => {
+        if (row.every((column) => column.occupied)) {
+            linesCleared++
+            accumulator.unshift([...blankRow])
+        } else {
+            accumulator.push(row)
+        }
+
+        return accumulator
+    }, [])
+
+    if (linesCleared > 0) {
+        addLinesCleared(linesCleared)
+    }
+
+
+
 
     if (player.collided || player.isFastDropping) {
         resetPlayer();

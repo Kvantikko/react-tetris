@@ -66,8 +66,8 @@ const tryToMove = ({ board, action, player, setPlayer, setGameOver }) => {
  * @returns next position of attempted move. If colliding, positions stays the same
  */
 export const movePlayer = ({ delta, position, shape, board }) => {
-    console.log('position before you pressed a key ', position);
-    console.log('delta ', delta);
+    //console.log('position before you pressed a key ', position);
+    //console.log('delta ', delta);
     
     
     // haluttu paikka

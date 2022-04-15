@@ -7,7 +7,7 @@ const buildPlayer = (previous) => {
 
   // jos on jo pelaaja
     if (previous) {
-        console.log('previous ', previous);
+        //console.log('previous ', previous);
       
         tetrominoes = [...previous.previewTetrominoes]
         tetrominoes.unshift(randomTetromino()) // asetetaa yksi uusi tetronimo preview taulukkoon
@@ -31,7 +31,7 @@ const buildPlayer = (previous) => {
 
 const usePlayer = () => {
     const [player, setPlayer] = useState(buildPlayer())
-    console.log('usePlayer hook ', player);
+    //console.log('usePlayer hook ', player);
     
 
     const resetPlayer = useCallback(() => {

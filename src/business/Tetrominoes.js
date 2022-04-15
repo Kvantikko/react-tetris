@@ -125,7 +125,7 @@ export const transferToBoard = ({
 
 // Rotating CLOCKWISE!!!
 export const rotate = ({ shape, direction }) => {
-    console.log('shape ', shape);
+   // console.log('shape ', shape);
     
     // Transpose rows and columns
     const newShape = shape.map((_, index) => {
