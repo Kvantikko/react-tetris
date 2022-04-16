@@ -3,6 +3,7 @@ import { rotate } from "./Tetrominoes"
 import { hasCollision, isWithinBoard } from "./Board";
 
 
+
 const tryToRotate = ({ board, player, setPlayer }) => {
     const shape = rotate({
         shape: player.tetromino.shape,
@@ -29,7 +30,7 @@ const tryToRotate = ({ board, player, setPlayer }) => {
 
 
 
-const tryToMove = ({ board, action, player, setPlayer, setGameOver }) => {
+const tryToMove = ({ board, action, player, setPlayer, setGameOver, setGamePlayed }) => {
     // movement change: column +1 = right, column -1 = left, row +1 = down
     const delta = { row: 0, column: 0 } 
  
@@ -52,6 +53,7 @@ const tryToMove = ({ board, action, player, setPlayer, setGameOver }) => {
     const isGameOver = collided && player.position.row === 0;
     if (isGameOver) {
         setGameOver(isGameOver)
+        setGamePlayed(true)
     }
     
     // ...otherwise set player to calculated position
@@ -78,6 +80,7 @@ export const movePlayer = ({ delta, position, shape, board }) => {
 
     // onko halutussa paikassa jo palikka
     const collided = hasCollision({
+        
         board,
         position: desiredNextPosition,
         shape
@@ -102,16 +105,16 @@ export const movePlayer = ({ delta, position, shape, board }) => {
     return { collided: isHit, nextPosition }
 }
 
-export const playerController = ({ action, board, player, setPlayer, setGameOver }) => {
+export const playerController = ({ action, board, player, setPlayer, setGameOver, setGamePlayed }) => {
     
-    //console.log('playr controller ', action);
     
+
     if (!action) return
   
     if (action === Action.Rotate) {
         tryToRotate({ board, player, setPlayer })
     } else {
-        tryToMove({ board, player, setPlayer, action, setGameOver })
+        tryToMove({ board, player, setPlayer, action, setGameOver, setGamePlayed })
     }
 }
   

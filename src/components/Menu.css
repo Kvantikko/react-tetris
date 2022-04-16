@@ -1,14 +1,24 @@
 .Menu {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
     z-index: 100;
 }
 
-.Button {
-    padding: 40px 80px;
+.ButtonPlay{
+    padding: 30px 50px;
     font-size: 2em;
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px, 60px;
+    cursor: pointer;
+}
+
+.ButtonScore {
+    padding: 20px 40px;
+    font-size: 1.5em;
     border-radius: 20px;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.5) 0px, 60px;

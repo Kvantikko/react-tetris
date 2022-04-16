@@ -8,23 +8,23 @@ import GameStats from "./GameStats"
 import Previews from "./Previews"
 
 import useBoard from "../hooks/useBoard"
-import useGameStats from "../hooks/useGameStats"
 import usePlayer from "../hooks/usePlayer"
 import useDropTime from "../hooks/useDropTime"
 import useInterval from "../hooks/useInterval"
+
+import useGameStats from "../hooks/useGameStats"
 
 /**
  * Tetris component is a children component of Game component. 
  * Renders Board, Gamestats and Previews 
  */
 
-const Tetris = ({ rows, columns, setGameOver }) => {
+const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
     // Hooks
-    const [gameStats, addLinesCleared] = useGameStats()
+    const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
-    const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, 
-        addLinesCleared })
-
+    const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
+   
 
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
         gameStats
@@ -72,12 +72,15 @@ const Tetris = ({ rows, columns, setGameOver }) => {
     }
 
     const handleInput = ({ action }) => {
+        
+       
         playerController({
             action,
             board,
             player,
             setPlayer,
-            setGameOver
+            setGameOver,
+            setGamePlayed
         })
     }
 
