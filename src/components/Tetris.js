@@ -53,7 +53,7 @@ const Tetris = ({ rows, columns, setGameOver }) => {
     
     // key goes down
     const onKeyDown = ({ code }) => {
-        console.log('key down: ', code)
+       // console.log('key down: ', code)
         const action = actionForKey(code)
         
         if (action === Action.Pause) {
@@ -66,7 +66,7 @@ const Tetris = ({ rows, columns, setGameOver }) => {
             setGameOver(true)
         } else {
             
-            console.log('droptime ', dropTime);
+           // console.log('droptime ', dropTime);
             if (actionIsDrop(action)) {
                 pauseDropTime()
             }
@@ -113,13 +113,14 @@ const Tetris = ({ rows, columns, setGameOver }) => {
     }
 
     const style2 = {
-        //backgroundColor: 'green'
+        backgroundColor: 'green'
     }
 
    
-  
+    
+    
     return (
-        <section className="Tetris" style={style2}  role="button" tabIndex='0' onKeyDown={onKeyDown} onKeyUp={onKeyUp}>
+        <div className="Tetris" id="Tetris" style={style2}  role="button" tabIndex='0'  onKeyDown={onKeyDown} onKeyUp={onKeyUp} autoFocus >
             
            
             <Board board={board}  />
@@ -131,7 +132,7 @@ const Tetris = ({ rows, columns, setGameOver }) => {
                     <GameStats gameStats={gameStats} />
                 </div>
            
-        </section>
+        </div>
     )
 }
 
