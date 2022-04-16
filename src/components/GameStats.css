@@ -16,4 +16,11 @@
     margin-bottom: 0.5em;
     color: rgba(255, 255, 255, 1);
 }
+
+.GameStats .statName {
+    font-size: 2vh;
+    color: rgba(255, 255, 255, 1);
+    opacity: 0.6;
+}
+  
   

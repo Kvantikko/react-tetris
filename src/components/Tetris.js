@@ -6,17 +6,12 @@ import { playerController } from "../business/PlayerController"
 import Board from "./Board"
 import GameStats from "./GameStats"
 import Previews from "./Previews"
-//import GameController from "./GameController"
 
 import useBoard from "../hooks/useBoard"
 import useGameStats from "../hooks/useGameStats"
 import usePlayer from "../hooks/usePlayer"
 import useDropTime from "../hooks/useDropTime"
 import useInterval from "../hooks/useInterval"
-
-
-
-
 
 /**
  * Tetris component is a children component of Game component. 
@@ -29,12 +24,6 @@ const Tetris = ({ rows, columns, setGameOver }) => {
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, 
         addLinesCleared })
-
-  
-
-
-
-
 
 
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
@@ -93,45 +82,30 @@ const Tetris = ({ rows, columns, setGameOver }) => {
     }
 
     
-
-
-
-
-
-
-
-
-
     const style = {
-        //backgroundColor: 'red',
-        marginLeft: '1vw',
-        display: 'flex',
-        flexDirection: 'column',
-        marginTop: '4vh',
+       marginLeft: '1vw', 
+       display: 'flex',
+      flexDirection: 'column',
+       marginTop: '4vh',
         height: '90vh'
-       
     }
 
-    const style2 = {
-        backgroundColor: 'green'
-    }
-
-   
-    
     
     return (
-        <div className="Tetris" id="Tetris" style={style2}  role="button" tabIndex='0'  onKeyDown={onKeyDown} onKeyUp={onKeyUp} autoFocus >
-            
-           
+        <div 
+            className="Tetris"
+            id="Tetris"
+            role="button"
+            tabIndex='0'
+            onKeyDown={onKeyDown}
+            onKeyUp={onKeyUp}
+            autoFocus
+        >
             <Board board={board}  />
-          
-            
-           
-                <div style={style}>
+                <div className="Info" style={style} >
                     <Previews previewTetrominoes={player.previewTetrominoes}  />
                     <GameStats gameStats={gameStats} />
                 </div>
-           
         </div>
     )
 }

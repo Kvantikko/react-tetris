@@ -1,8 +1,9 @@
 .Tetris {
-  
     height: 100%;
-    background-color: black;
+    background-color: green;
     overflow: auto;
     display: flex;
-     align-items: flex-start;
+    justify-content: center;
+    /*align-items: flex-start;*/
 }
+
