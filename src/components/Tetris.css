@@ -1,5 +1,6 @@
 .Tetris {
     height: 100%;
+    width: 100%;
     background-color: green;
     overflow: auto;
     display: flex;

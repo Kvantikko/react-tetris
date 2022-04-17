@@ -1,0 +1,23 @@
+.HighScores {
+    margin: 3vh;
+    border: 2vh;
+    padding: 2vw;
+   
+    border: 0.7vh solid rgb(255, 255, 255);
+}
+
+.Header {
+    font-size: 3vh;
+   
+}
+
+.Scores {
+    margin: 2vh;
+    list-style-type: none;
+    
+}
+
+.Score {
+    margin: 3px;
+    
+}

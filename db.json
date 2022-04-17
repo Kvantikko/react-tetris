@@ -1,0 +1,34 @@
+{
+  "scores": [
+    {
+      "name": "Mikko",
+      "score": 10,
+      "id": "SeKrEtId123"
+    },
+    {
+      "name": "Eki",
+      "score": 60,
+      "id": "SeKrEtId666"
+    },
+    {
+      "name": "Sami",
+      "score": 70,
+      "id": "SeKrEtId987"
+    },
+    {
+      "name": "Mari",
+      "score": 1000,
+      "id": "SeKrEtId111"
+    },
+    {
+      "name": "Testi",
+      "score": 0,
+      "id": "KEzCjDL"
+    },
+    {
+      "name": "Testi2",
+      "score": 0,
+      "id": "pUGRPLT"
+    }
+  ]
+}

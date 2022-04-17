@@ -1,21 +1,11 @@
-import { useContext } from "react";
-//import { Context } from "./Game";
+import "./ScoreBoard.css"
 
 const ScoreBoard = ({ scores }) => {
-
-    //console.log('dddddddddddd',scores);
-    
-   
-    //const value = useContext(Context)
-   // console.log('scoreboard', value.scores.map(s => s.name))
-  
-
-    
     return(
-        <div>
-            <header>High Score</header>   
-            <ul >
-                {scores.map(s =>  <li key={s.name }> {s.name} {s.points}</li>)}
+        <div className="HighScores">
+            <header className="Header">High Scores</header>   
+            <ul className="Scores">
+                {scores.map(s =>  <li className="Score" key={s.id}> {s.name} {s.score}</li>)}
             </ul>
         </div>
     )

@@ -1,34 +1,37 @@
 
 import "./Menu.css"
 
-import SaveScore from "./SaveScore"
 import ScoreBoard from "./ScoreBoard"
+import scoreService from "../services/scores"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 //import scores from "../scores.json"
 
+import { useContext } from "react"
+    import { Context } from "./Game"
+import ScoreForm from "./ScoreForm"
+
+    
 
 
 
-
-const Menu = ({ resetGameOver, gameStats, gamePlayed, setGamePlayed }) => {
+const Menu = ({ resetGameOver, gamePlayed, setGamePlayed, highScores,  setHighScores, allScores, setAllScores }) => {
     //console.log('menu');
     
-    let scores = [
-        {
-            "name": "Bart",
-            "points": 100
-        },
-        {
-            "name": "Maggie",
-            "points": 75
-        }
-    ]
+   
     
-    
-    const [ highScores, setHighScores ] = useState(scores)
+    //const [ highScores, setHighScores ] = useState([])
     const [ newName, setNewName ] = useState('')
+
+    //console.log('scores ', highScores)
+    
+    
+    const [val, setVal] = useContext(Context);
+
+
+
+
     
     
 /*
@@ -38,29 +41,56 @@ const Menu = ({ resetGameOver, gameStats, gamePlayed, setGamePlayed }) => {
 
 
     const startGame = () => {
-        
+        setGamePlayed(false)
         resetGameOver()
     }
 
     const addScore = (event) => {
         
         event.preventDefault()
-        console.log('adding ', gameStats);
+        console.log('adding ', val);
         
         const obj = {
             name: newName,
-            points: gameStats.points
+            score: val
         }
         console.log('obj', obj);
         
-        setHighScores(highScores.concat(obj))
         setGamePlayed(false)
-        scores.concat(obj)
-        // write to file 
-        //-- cant
         
-        
+        scoreService
+            .create(obj)
+            .then(response => {
+                console.log('response ', response);
+                
+                const sortedScores = allScores.concat(response.data).sort((a, b) => (b.score)- (a.score))
+                console.log('1');
+ 
+                setAllScores(sortedScores)
+                console.log('2');
+
+                const highestScores = sortedScores.slice(0, 15);
+                console.log('3');
+                
+                setHighScores(highestScores)
+                console.log('4');
+
+            }).catch((error) => {
+                console.log('error ', error.response);
+                
+            })
+       
+       
     }
+
+
+
+
+
+
+
+
+
 
    
     const handleNameChange = (event) => {
@@ -71,7 +101,7 @@ const Menu = ({ resetGameOver, gameStats, gamePlayed, setGamePlayed }) => {
         <div className="Menu">
             
             
-            <SaveScore gameStats={gameStats} gamePlayed={gamePlayed} addScore={addScore} name={newName} handleNameChange={handleNameChange}/>
+            <ScoreForm gamePlayed={gamePlayed} addScore={addScore} name={newName} handleNameChange={handleNameChange}/>
             <button className="ButtonPlay" onClick={startGame}>
                 Play Tetris
             </button>

@@ -14,6 +14,9 @@ import useInterval from "../hooks/useInterval"
 
 import useGameStats from "../hooks/useGameStats"
 
+
+
+
 /**
  * Tetris component is a children component of Game component. 
  * Renders Board, Gamestats and Previews 
@@ -24,8 +27,8 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
-   
-
+    
+    
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
         gameStats
     })

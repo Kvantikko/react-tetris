@@ -1,50 +1,51 @@
+import { createContext, useState } from 'react';
+
+import "./Game.css"
+
 import Menu from "./Menu"
 import Tetris from "./Tetris"
 
 import useGameOver from "../hooks/useGameOver"
-import useGameStats from "../hooks/useGameStats"
-
-import { createContext, useState } from 'react';
-import scores from "../scores.json"
-
 
 
 export const Context = createContext();
+
 /**
  * Game component is the children component of App component. 
  * It renders Menu or Tetris depending on gameOver state. 
  */
 
-const Game = ({ rows, columns }) => {
+const Game = ({ highScores,  setHighScores, setAllScores, allScores }) => {
     const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
-    const [gameStats, addLinesCleared] = useGameStats() 
-    
     const [gamePlayed, setGamePlayed] = useState(false)
-   
-    
-    
-    
-    
-
+    const [val, setVal] = useState(0);
    
     const style = { 
         backgroundColor: 'black',
-        height: '100%'
+        height: '100%',
+        display: 'flex',
+       
+        flexDirection: 'column',
+       
+       
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'auto',
+       
     }
-    
-        
+     
     return (
-        <Context.Provider value={scores} >
+        <Context.Provider value={[val, setVal]} >
             <div className="Game" style={style}>
                 {gameOver ? (
-                    <Menu resetGameOver={resetGameOVer} gamePlayed={gamePlayed} setGamePlayed={setGamePlayed} />
+                    <Menu resetGameOver={resetGameOVer} gamePlayed={gamePlayed} setGamePlayed={setGamePlayed} highScores={highScores}  setHighScores={setHighScores} allScores={allScores} setAllScores={setAllScores} />
                 ) : (
                     <Tetris 
-                        rows={rows} 
-                        columns={columns} 
+                        rows={20} 
+                        columns={10}
                         setGameOver={setGameOver}
-                        gameStats={gameStats}
-                        addLinesCleared={addLinesCleared}
+                        //gameStats={gameStats}
+                        //addLinesCleared={addLinesCleared}
                         setGamePlayed={setGamePlayed}
                     />
                 )}
