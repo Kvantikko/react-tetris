@@ -16,10 +16,8 @@ export const Context = createContext();
  */
 
 const Game = ({ rows, columns }) => {
-    const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
-    const [gameStats, addLinesCleared] = useGameStats() 
-    
-    const [gamePlayed, setGamePlayed] = useState(false)
+    //const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
+    //const [gamePlayed, setGamePlayed] = useState(false)
    
     
     
@@ -27,28 +25,21 @@ const Game = ({ rows, columns }) => {
     
 
    
-    const style = { 
-        backgroundColor: 'black',
-        height: '100%'
-    }
+   
     
         
     return (
         <Context.Provider value={scores} >
-            <div className="Game" style={style}>
-                {gameOver ? (
-                    <Menu resetGameOver={resetGameOVer} gamePlayed={gamePlayed} setGamePlayed={setGamePlayed} />
-                ) : (
-                    <Tetris 
+          
+           <Tetris 
                         rows={rows} 
                         columns={columns} 
-                        setGameOver={setGameOver}
-                        gameStats={gameStats}
-                        addLinesCleared={addLinesCleared}
-                        setGamePlayed={setGamePlayed}
+                      
                     />
-                )}
-            </div>
+          
+                    
+                
+           
         </Context.Provider>
     )
 }

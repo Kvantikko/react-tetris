@@ -23,7 +23,7 @@ const useDropTime = ({ gameStats }) => {
 
     useEffect(() => {
         // focus when game starts
-        document.getElementById('Tetris').focus()
+        
         const speed = speedIncrement * (gameStats.level - 1)
         const newDropTime = Math.max(defaultDropTime - speed, minimumDropTime)
 

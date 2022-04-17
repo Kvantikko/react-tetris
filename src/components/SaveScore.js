@@ -18,7 +18,7 @@ const SaveScore = ({ gameStats, gamePlayed, addScore, name, handleNameChange }) 
             <div>
                 <div>Game over!</div>
                 <div>Your Score:</div>
-                <div>0</div>
+                <div>{gameStats.points}</div>
                 <NameForm addScore={addScore} name={name} handleNameChange={handleNameChange} />
             </div>
         )
