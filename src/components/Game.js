@@ -19,6 +19,8 @@ const Game = ({ highScores,  setHighScores, setAllScores, allScores }) => {
     const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
     const [gamePlayed, setGamePlayed] = useState(false)
     const [val, setVal] = useState(0);
+
+    console.log('Game ', highScores, allScores);
    
     const style = { 
         backgroundColor: 'black',
@@ -48,8 +50,10 @@ const Game = ({ highScores,  setHighScores, setAllScores, allScores }) => {
                         //addLinesCleared={addLinesCleared}
                         setGamePlayed={setGamePlayed}
                     />
-                )}
-            </div>
+           )} </div>
+                    
+                
+           
         </Context.Provider>
     )
 }

@@ -8,6 +8,8 @@ import scoreService from "./services/scores"
 function App() {
     const [ highScores, setHighScores ] = useState([])
     const [ allScores, setAllScores ] = useState([])
+
+    console.log('App ', highScores);
    
     useEffect(() => {
         scoreService

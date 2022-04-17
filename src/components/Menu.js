@@ -18,6 +18,9 @@ import ScoreForm from "./ScoreForm"
 
 const Menu = ({ resetGameOver, gamePlayed, setGamePlayed, highScores,  setHighScores, allScores, setAllScores }) => {
     //console.log('menu');
+
+    console.log('Menu', highScores, allScores);
+    
     
    
     

@@ -14,6 +14,9 @@ import useInterval from "../hooks/useInterval"
 
 import useGameStats from "../hooks/useGameStats"
 
+import { useState } from "react"
+import useGameOver from "../hooks/useGameOver"
+import Menu from "./Menu"
 
 
 
@@ -24,6 +27,7 @@ import useGameStats from "../hooks/useGameStats"
 
 const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
     // Hooks
+    
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
@@ -95,25 +99,35 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
        marginTop: '4vh',
         height: '90vh'
     }
+/*
+    const style2 = { 
+        backgroundColor: 'black',
+        height: '100%'
+    }
+
+    */
+    
 
     
     return (
-        <div 
-            className="Tetris"
-            id="Tetris"
-            role="button"
-            tabIndex='0'
-            onKeyDown={onKeyDown}
-            onKeyUp={onKeyUp}
-            autoFocus
-        >
-            <Board board={board}  />
+        
+            <div 
+                className="Tetris"
+                id="Tetris"
+                role="button"
+                tabIndex='0'
+                onKeyDown={onKeyDown}
+                onKeyUp={onKeyUp}
+                autoFocus
+            >
+                <Board board={board}  />
                 <div className="Info" style={style} >
                     <Previews previewTetrominoes={player.previewTetrominoes}  />
                     <GameStats gameStats={gameStats} />
                 </div>
-        </div>
-    )
-}
+            </div>
+      
+        )
+    }
 
 export default Tetris

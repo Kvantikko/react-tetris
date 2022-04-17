@@ -11,8 +11,8 @@ const ScoreForm = ({ gamePlayed, addScore, name, handleNameChange }) => {
     return(
         <div className="ScoreForm" >
             <div className="GameOver">Game over!</div>
-            <div className="YourScore">Your score:</div>
-            <div className="Score">{val}</div>
+            <div className="ScoreFormText">Your score:</div>
+            <div className="ScoreFormText">{val}</div>
             <form onSubmit={addScore}>
                 <div className="ScoreFormInput">
                     Name:
