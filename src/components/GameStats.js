@@ -2,16 +2,12 @@ import React, { useEffect } from "react"
 
 import "./GameStats.css"
 
-
 import { useContext } from "react"
 import { Context } from "./Game"
 
 
-
 const GameStats = ({ gameStats }) => {
-    
     const [, setVal] = useContext(Context);
-    
     
     const { level, points, linesCompleted, linesPerLevel } = gameStats
     const linesToLevel = linesPerLevel - linesCompleted
@@ -21,7 +17,6 @@ const GameStats = ({ gameStats }) => {
         setVal(points)
     },[points, setVal])
     
-
     return (
         <ul className="GameStats">
             <li className="statName">Level</li>

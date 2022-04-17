@@ -1,8 +1,6 @@
 import "./ScoreBoard.css"
 
 const ScoreBoard = ({ scores }) => {
-
-    console.log('ScoreBoard ',scores);
     return(
         <div className="HighScores">
             <header className="Header">High Scores</header>   

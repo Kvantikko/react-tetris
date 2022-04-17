@@ -17,7 +17,6 @@ export const Key = {
     KeyQ: Action.Quit,
 }
 
-export const actionIsDrop = (action) =>
-  Action.Down.includes(action)
+export const actionIsDrop = (action) => Action.Down.includes(action)
 
 export const actionForKey = (keyCode) => Key[keyCode]

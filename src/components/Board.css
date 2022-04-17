@@ -1,15 +1,9 @@
 .Board {
-   
-   
     margin-top: 4vh;
-    
-    
     display: grid;
     height: 90vh;
     width: 45vh;
-
     max-height: 100%;
-
     border: 0.7vh solid rgb(255, 255, 255);
     border-radius: 0.7vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

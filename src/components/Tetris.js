@@ -26,12 +26,9 @@ import Menu from "./Menu"
  */
 
 const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
-    // Hooks
-    
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
-    
     
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
         gameStats
@@ -61,8 +58,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
         } else if (action === Action.Quit) {
             setGameOver(true)
         } else {
-            
-           // console.log('droptime ', dropTime);
             if (actionIsDrop(action)) {
                 pauseDropTime()
             }
@@ -70,7 +65,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
             if (!dropTime) {
                 return
             }
-            
             */
             handleInput({ action })
         }
@@ -79,8 +73,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     }
 
     const handleInput = ({ action }) => {
-        
-       
         playerController({
             action,
             board,
@@ -91,7 +83,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
         })
     }
 
-    
     const style = {
        marginLeft: '1vw', 
        display: 'flex',
@@ -99,43 +90,28 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
        marginTop: '4vh',
         height: '90vh'
     }
-/*
-    const style2 = { 
-        backgroundColor: 'black',
-        height: '100%'
-    }
-
-    */
-    
 
     const style2 = { 
         backgroundColor: 'black',
         height: '100%'
     }
 
-    
-
-    
-
-    
     return (
-        
-            <div 
-                className="Tetris"
-                id="Tetris"
-                role="button"
-                tabIndex='0'
-                onKeyDown={onKeyDown}
-                onKeyUp={onKeyUp}
-                autoFocus
-            >
-                <Board board={board}  />
-                <div className="Info" style={style} >
-                    <Previews previewTetrominoes={player.previewTetrominoes}  />
-                    <GameStats gameStats={gameStats} />
-                </div>
+        <div 
+            className="Tetris"
+            id="Tetris"
+            role="button"
+            tabIndex='0'
+            onKeyDown={onKeyDown}
+            onKeyUp={onKeyUp}
+            autoFocus
+        >
+            <Board board={board}  />
+            <div className="Info" style={style} >
+                <Previews previewTetrominoes={player.previewTetrominoes}  />
+                <GameStats gameStats={gameStats} />
             </div>
-      
+        </div>
         )
     }
 

@@ -12,8 +12,6 @@ export const buildBoard = ({ rows, columns }) => {
         Array.from({ length: columns }, () => ({ ...defaultCell }))
     )
     
-    //console.log('building a board ', builtRows);
-    
     return {
         rows: builtRows,
         size: { rows, columns }
@@ -23,8 +21,6 @@ export const buildBoard = ({ rows, columns }) => {
 export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     const { tetromino, position } = player;
   
-    //console.log('here in nextboard ', board[0]);
-    
     let rows = board.rows.map((row) =>
         row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
     )
@@ -57,14 +53,10 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
         addLinesCleared(linesCleared)
     }
 
-
-
-
     if (player.collided || player.isFastDropping) {
         resetPlayer();
     }
 
-    
     return {
         rows,
         size: {...board.size}

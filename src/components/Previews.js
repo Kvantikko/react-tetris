@@ -3,9 +3,6 @@ import React from "react"
 import Preview from "./Preview"
 
 const Previews = ({ previewTetrominoes }) => {
-
-   // console.log("Previewsssss ", previewTetrominoes);
-
     const style = {
         backGround: 'red'
     }

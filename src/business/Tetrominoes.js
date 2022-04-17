@@ -89,15 +89,6 @@ export const transferToBoard = ({
     rows,
     shape
 }) => {
-    /*
-    console.log(className);
-    console.log(isOccupied);
-    console.log(position);
-    console.log(rows);
-    console.log(shape);
-    console.log("----------------------------")
-    */
-    
     // shape is 2D array representation of the shape
     // for each row in this representaion (y is row number) ->
     //     for each cell in this row (x is index of row) ->
@@ -117,36 +108,19 @@ export const transferToBoard = ({
             }
         })
     })
-
-    //console.log("RETUNS ", rows)
   
     return rows;
 }
 
 // Rotating CLOCKWISE!!!
 export const rotate = ({ shape, direction }) => {
-   // console.log('shape ', shape);
-    
     // Transpose rows and columns
     const newShape = shape.map((_, index) => {
-       // console.log('wwwwwwwww', _, index);
-        
         return shape.map((column) => {
-            //console.log('aaaaaaaa', column, index);
-            //console.log('bbbbbbbb', column[index]);
-            
             return column[index]
         })
     })
 
-    //console.log('new shape ', newShape)
-    //console.log('reverse ', newShape.map((row) => row.reverse()));
-    
-    
-        
-
-  
-    // Reverse rows to get a rotated matrix NEEEDED???
     if (direction > 0) return newShape.map((row) => row.reverse())
   
     return newShape.reverse();

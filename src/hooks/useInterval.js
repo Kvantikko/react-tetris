@@ -5,9 +5,6 @@ const useInterval = (callback, delay) => {
 
   useEffect(() => {
     savedCallback.current = callback;
-
-    
-   
   }, [callback]);
 
   useEffect(() => {

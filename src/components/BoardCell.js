@@ -4,9 +4,6 @@ const BoardCell = ({ cell }) => {
     var color = null
     const tetriminoName = cell.className
 
-    
-    
-
     switch(tetriminoName) {
         case 'tetrominoI':
             color = 'rgba(80, 227, 230, 1)'
@@ -38,17 +35,11 @@ const BoardCell = ({ cell }) => {
         border: '1px solid rgb(0, 0, 0)',
     }
 
-    
     return (
         <div className={`BoardCell ${cell.className}`} style={cellStyle}>
             <></>
         </div>
     )
-
-
 }
     
-
 export default BoardCell
-
-

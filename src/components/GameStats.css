@@ -1,14 +1,9 @@
 .GameStats {
-    
-    
-   
     list-style-type: none;
     color: rgba(255, 255, 255, 0.5);
-   
     text-align: left;
     margin-top: 17vh;
     margin-left: 1vw;
-   
 }
   
 .GameStats .value {
