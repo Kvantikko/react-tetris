@@ -29,14 +29,17 @@ import { createContext, useState } from 'react';
 
 const Tetris = ({ rows, columns,  }) => {
     // Hooks
+    
+    const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
+    const [gamePlayed, setGamePlayed] = useState(false)
+    
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
 
 
 
-    const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
-    const [gamePlayed, setGamePlayed] = useState(false)
+    
 
    
 

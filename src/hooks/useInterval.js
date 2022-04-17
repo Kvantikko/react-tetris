@@ -5,12 +5,8 @@ const useInterval = (callback, delay) => {
 
   useEffect(() => {
     savedCallback.current = callback;
-    //console.log('heheheh');
-    //console.log(document.getElementById('Tetris'));
-    //document.getElementById('Tetris').focus()
-    if (document.getElementById('Tetris')) {
-        document.getElementById('Tetris').focus()
-    }
+
+    
    
   }, [callback]);
 
