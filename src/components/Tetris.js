@@ -116,6 +116,8 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     
 
     
+
+    
     return (
         
             <div 
