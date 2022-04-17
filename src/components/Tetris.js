@@ -25,7 +25,7 @@ import Menu from "./Menu"
  * Renders Board, Gamestats and Previews 
  */
 
-const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
+const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     // Hooks
     
     const [gameStats, addLinesCleared] = useGameStats() 
@@ -106,6 +106,13 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed }) => {
     }
 
     */
+    
+
+    const style2 = { 
+        backgroundColor: 'black',
+        height: '100%'
+    }
+
     
 
     

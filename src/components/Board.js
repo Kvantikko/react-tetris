@@ -3,7 +3,9 @@ import "./Board.css"
 import BoardCell from "./BoardCell"
 
 const Board = ({ board }) => {
-    
+  
+
+
     const boardStyle = {
         gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
         gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`
