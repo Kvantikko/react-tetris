@@ -1,9 +1,10 @@
 const express = require('express')
-const app = express()
-app.use(express.json())
 const cors = require('cors')
-app.use(cors())
+const app = express()
+
 app.use(express.static('build'))
+app.use(express.json())
+app.use(cors())
 
 const PORT = process.env.PORT || 3001
 
@@ -29,7 +30,7 @@ const generateId = () => {
 }
   
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>')
+    res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
 
 app.get('/api/scores', (reqquest, response) => {
