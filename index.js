@@ -34,7 +34,7 @@ app.get("/*", (req, res) => {
 })
 */
 
-app.get('/preload', (req, res) => {
+app.get('/', (req, res) => {
     console.log('EKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
     
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
