@@ -6,20 +6,7 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 
-const PORT = process.env.PORT || 3001
-
-const path = require("path");
-
-if (process.env.NODE_ENV === "production") {
-    console.log('TRUE');
-    
-    app.use(express.static("client/build"));
-
-    app.get("/*", (req, res) => {
-        res.send(path.join(__dirname, "client", "build", "index.html"));
-    })
-
-}
+//const path = require("path");
 
 let scores = [
     {
@@ -41,14 +28,16 @@ const generateId = () => {
       : 0
     return maxId + 1
 }
+/*
 app.get("/*", (req, res) => {
     res.send(path.join(__dirname, "client", "build", "index.html"));
 })
-/*
+*/
+
 app.get('/', (req, res) => {
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
-*/
+
 app.get('/api/scores', (reqquest, response) => {
     if (scores) {
         response.json(scores)
@@ -89,6 +78,7 @@ app.post('/api/scores', (request, response) => {
     response.json(score)
 })
 
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
