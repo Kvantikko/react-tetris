@@ -11,14 +11,13 @@ const PORT = process.env.PORT || 3001
 const path = require("path");
 
 if (process.env.NODE_ENV === "production") {
-
+    console.log('TRUE');
+    
     app.use(express.static("client/build"));
 
-    app.get("*", (req, res) => {
-
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-
-   });
+    app.get("/*", (req, res) => {
+        res.send(path.join(__dirname, "client", "build", "index.html"));
+    })
 
 }
 
@@ -42,6 +41,9 @@ const generateId = () => {
       : 0
     return maxId + 1
 }
+app.get("/*", (req, res) => {
+    res.send(path.join(__dirname, "client", "build", "index.html"));
+})
 /*
 app.get('/', (req, res) => {
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
