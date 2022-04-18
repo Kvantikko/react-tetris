@@ -10,28 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: step 1
-        uses: actions/checkout@v1
-
-      - name: step 2
+      - uses: actions/checkout@v1
+      - name: Development Code
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
 
-      - name: step 3
+
+      - name: On client directory
         working-directory: ./client
         run: npm install
-      
-      - name: step 4
-        working-directory: ./client
         run: CI=false npm run build --if-present
-      
-      - name: step5
-        working-directory: ./client
         run: cp -r build ../build
 
+
       - name: On root directory
-      - run: npm install
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+        run: npm install
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
@@ -40,5 +37,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'utu-mike-react-tetris'
           heroku_email: 'mikko.j.syrjala@utu.fi'
-
-  
