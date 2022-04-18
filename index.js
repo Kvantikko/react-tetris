@@ -2,16 +2,16 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 
-//app.use(express.static('build'))
+app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 
-const path = require("path");
+//const path = require("path");
 
-console.log("env", process.env.NODE_ENV);
+//console.log("env", process.env.NODE_ENV);
 
-app.use(express.static(path.join(__dirname, "build")));
-
+//app.use(express.static(path.join(__dirname, "build")));
+/*
 if (process.env.NODE_ENV === "production") {
     console.log('täällä');
     
@@ -29,18 +29,18 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
-/*
+
 app.get("/*", (req, res) => {
     res.send(path.join(__dirname, "client", "build", "index.html"));
 })
 */
-/*
+
 app.get('/', (req, res) => {
-    console.log('EKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    //console.log('EKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
     
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
-*/
+
 app.get('/api/scores', (reqquest, response) => {
     if (scores) {
         response.json(scores)
