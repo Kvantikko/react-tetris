@@ -2,6 +2,9 @@ import "./Board.css"
 
 import BoardCell from "./BoardCell"
 
+/**
+ * @returns the tetris board with boardcells
+ */
 const Board = ({ board }) => {
     const boardStyle = {
         gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,

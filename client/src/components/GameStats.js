@@ -5,14 +5,15 @@ import "./GameStats.css"
 import { useContext } from "react"
 import { Context } from "./Game"
 
-
+/**
+ * Renders the game statistics
+ */
 const GameStats = ({ gameStats }) => {
     const [, setVal] = useContext(Context);
-    
     const { level, points, linesCompleted, linesPerLevel } = gameStats
     const linesToLevel = linesPerLevel - linesCompleted
 
-    // use effect suoritetaan vasta renderöinnin jälkeen joten ei tule erroria
+    // useEffect is executed after rendering -> prevents error
     useEffect(() => {
         setVal(points)
     },[points, setVal])

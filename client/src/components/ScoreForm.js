@@ -3,8 +3,11 @@ import "./ScoreForm.css"
 import { useContext } from "react"
 import { Context } from "./Game"
 
+/**
+ * Form for writing player name after a game has ended
+ */
 const ScoreForm = ({ gamePlayed, addScore, name, handleNameChange }) => {
-    const [val, setVal] = useContext(Context);
+    const [val, ] = useContext(Context);
 
     if(!gamePlayed) return null
 

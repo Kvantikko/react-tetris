@@ -1,43 +1,14 @@
 const express = require('express')
 const cors = require('cors')
+
 const app = express()
 
 app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 
-//const path = require("path");
-
-//console.log("env", process.env.NODE_ENV);
-
-//app.use(express.static(path.join(__dirname, "build")));
-/*
-if (process.env.NODE_ENV === "production") {
-    console.log('täällä');
-    
-    app.use(express.static(path.join(__dirname, "build")));
-  
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "build", "index.html"));
-    });
-}
-
-
-app.get("*", (req, res) => {
-    console.log('tähti', path.resolve(__dirname, "build", "index.html"));
-    
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
-
-
-app.get("/*", (req, res) => {
-    res.send(path.join(__dirname, "client", "build", "index.html"));
-})
-*/
 
 app.get('/', (req, res) => {
-    //console.log('EKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
-    
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
 
@@ -84,12 +55,12 @@ app.post('/api/scores', (request, response) => {
 let scores = [
     {
         name: "Mikko",
-        score: 10,
+        score: 100,
         id: 1
     },
     {
-        name: "Elisa",
-        score: 100,
+        name: "Ilona",
+        score: 200,
         id: 2
     },
     

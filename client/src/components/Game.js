@@ -1,25 +1,26 @@
-import { createContext, useState } from 'react';
+//import "./Game.css"
 
-import "./Game.css"
+import { createContext, useState } from 'react';
 
 import Menu from "./Menu"
 import Tetris from "./Tetris"
 
 import useGameOver from "../hooks/useGameOver"
 
-
 export const Context = createContext();
 
 /**
  * Game component is the children component of App component. 
- * It renders Menu or Tetris depending on gameOver state. 
+ * It renders Menu or Tetris depending on gameOver state.
+ * Context provides score value to the game and menu.
  */
 
 const Game = ({ highScores,  setHighScores, setAllScores, allScores }) => {
     const [gameOver, setGameOver, resetGameOVer] = useGameOver()   
     const [gamePlayed, setGamePlayed] = useState(false)
-    const [val, setVal] = useState(0);
+    const [points, setPoints] = useState(0);
 
+    // css file not applying for some reason...
     const style = { 
         backgroundColor: 'black',
         height: '100%',
@@ -28,12 +29,11 @@ const Game = ({ highScores,  setHighScores, setAllScores, allScores }) => {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'auto',
-       
     }
      
     return (
-        <Context.Provider value={[val, setVal]} >
-            <div className="Game" style={style}>
+        <Context.Provider value={[points, setPoints]} >
+            <div className="Game" style={style} > 
                 {gameOver ? (
                     <Menu resetGameOver={resetGameOVer}
                         gamePlayed={gamePlayed}

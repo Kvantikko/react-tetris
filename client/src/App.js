@@ -1,16 +1,12 @@
 import "./styles.css"
-
-import Game from "./components/Game"
 import { useEffect, useState } from "react"
+import Game from "./components/Game"
 import scoreService from "./services/scores"
-
 
 function App() {
     const [ highScores, setHighScores ] = useState([])
     const [ allScores, setAllScores ] = useState([])
 
-    console.log('App ', highScores);
-   
     useEffect(() => {
         scoreService
             .getAll()
@@ -25,7 +21,12 @@ function App() {
 
     return(
         <div className="App">
-            <Game highScores={highScores} setHighScores={setHighScores} setAllScores={setAllScores} allScores={allScores} />
+            <Game 
+                highScores={highScores}
+                setHighScores={setHighScores}
+                setAllScores={setAllScores}
+                allScores={allScores}
+            />
         </div>
     )
 }

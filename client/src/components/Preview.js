@@ -12,22 +12,12 @@ import { transferToBoard } from "../business/Tetrominoes"
  */
 
 const Preview = ({ tetromino, index }) => {
-   
     const { shape, className } = tetromino
 
     const board = buildBoard({ rows: 4, columns: 4 })
     
-    const style = { 
-       // position: 'absolute',
-        //top: '0',
-       // left: '65vw',
-        ////// borderRadius: '10px',
-       // top: `${index * 6}vw` ,
-        //left: `20vw`
-    }
-
     const boardStyle = {
-        // Makes the CSS grid template repeat
+        // Makes the CSS grid template repeat cells
         gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
         gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`
     }
@@ -41,7 +31,7 @@ const Preview = ({ tetromino, index }) => {
     })
 
     return(
-        <div className="Preview" style={style} >
+        <div className="Preview" >
             <div className="Preview-board" style={boardStyle} >
                 {board.rows.map((row, y) =>
                     row.map((cell, x) => (

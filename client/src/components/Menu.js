@@ -1,17 +1,29 @@
 import "./Menu.css"
 
+import { useContext, useState } from "react"
+
 import ScoreBoard from "./ScoreBoard"
-import scoreService from "../services/scores"
-
-import { useState } from "react"
-
-import { useContext } from "react"
-import { Context } from "./Game"
 import ScoreForm from "./ScoreForm"
 
-const Menu = ({ resetGameOver, gamePlayed, setGamePlayed, highScores,  setHighScores, allScores, setAllScores }) => {
-    const [ newName, setNewName ] = useState('')
-    const [val, setVal] = useContext(Context);
+import scoreService from "../services/scores"
+
+import { Context } from "./Game"
+
+/**
+ * Menu renders scoreboard, startbutton and ability to save your name/score after a game
+ * has ended.
+ */
+const Menu = ({
+    resetGameOver,
+    gamePlayed,
+    setGamePlayed,
+    highScores, 
+    setHighScores,
+    allScores,
+    setAllScores
+}) => {
+    const [newName, setNewName] = useState('')
+    const [points, ] = useContext(Context);
 
     const startGame = () => {
         setGamePlayed(false)
@@ -20,16 +32,19 @@ const Menu = ({ resetGameOver, gamePlayed, setGamePlayed, highScores,  setHighSc
 
     const addScore = (event) => {
         event.preventDefault()
+        
         const obj = {
             name: newName,
-            score: val
+            score: points
         }
         setGamePlayed(false)
     
         scoreService
             .create(obj)
             .then(response => {
-                const sortedScores = allScores.concat(response.data).sort((a, b) => (b.score)- (a.score))
+                const sortedScores = allScores
+                    .concat(response.data)
+                    .sort((a, b) => (b.score)- (a.score))
                 setAllScores(sortedScores)
                 const highestScores = sortedScores.slice(0, 15);
                 setHighScores(highestScores)
@@ -44,7 +59,12 @@ const Menu = ({ resetGameOver, gamePlayed, setGamePlayed, highScores,  setHighSc
     
     return(
         <div className="Menu">
-            <ScoreForm gamePlayed={gamePlayed} addScore={addScore} name={newName} handleNameChange={handleNameChange}/>
+            <ScoreForm 
+                gamePlayed={gamePlayed}
+                addScore={addScore}
+                name={newName}
+                handleNameChange={handleNameChange}
+            />
             <button className="ButtonPlay" onClick={startGame}>
                 Play Tetris
             </button>

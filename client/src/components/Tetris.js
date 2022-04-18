@@ -11,14 +11,7 @@ import useBoard from "../hooks/useBoard"
 import usePlayer from "../hooks/usePlayer"
 import useDropTime from "../hooks/useDropTime"
 import useInterval from "../hooks/useInterval"
-
 import useGameStats from "../hooks/useGameStats"
-
-import { useState } from "react"
-import useGameOver from "../hooks/useGameOver"
-import Menu from "./Menu"
-
-
 
 /**
  * Tetris component is a children component of Game component. 
@@ -38,15 +31,12 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
         handleInput({ action: Action.Down })
     }, dropTime)
 
-    // key comes up
     const onKeyUp = ({ code }) => {
-        const action = actionForKey(code);
+        const action = actionForKey(code)
         if (actionIsDrop(action)) resumeDropTime()
-      };
+    }
     
-    // key goes down
     const onKeyDown = ({ code }) => {
-       // console.log('key down: ', code)
         const action = actionForKey(code)
         
         if (action === Action.Pause) {
@@ -68,7 +58,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
             */
             handleInput({ action })
         }
-        
         //handleInput({ action })
     }
 
@@ -89,11 +78,6 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
       flexDirection: 'column',
        marginTop: '4vh',
         height: '90vh'
-    }
-
-    const style2 = { 
-        backgroundColor: 'black',
-        height: '100%'
     }
 
     return (

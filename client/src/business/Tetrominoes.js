@@ -93,16 +93,10 @@ export const transferToBoard = ({
     // for each row in this representaion (y is row number) ->
     //     for each cell in this row (x is index of row) ->
     shape.forEach((row, y) => {
-        //console.log('ROWcontent: ', row, '   Yindex: ', y)
         row.forEach((cell, x) => {
-            //console.log('CELLcontent: ', cell, '    Xindex: ', x, '   occu ', isOccupied)
             if (cell) {
-                //console.log("cell true, = 1")
-                
                 const occupied = isOccupied
-                //console.log(position.row)
                 const _y = y + position.row
-                //console.log(position.column)
                 const _x = x + position.column
                 rows[_y][_x] = { occupied, className }
             }
