@@ -10,18 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Development Code
+      - name: step 1
         uses: actions/checkout@v1
+
+      - name: step 2
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
 
-      - name: On client directory
+      - name: step 3
         working-directory: ./client
-      - run: npm install
-      - run: CI=false npm run build --if-present
-      - run: cp -r build ../build
-
+        run: npm install
+      
+      - name: step 4
+        working-directory: ./client
+        run: CI=false npm run build --if-present
+      
+      - name: step5
+        working-directory: ./client
+        run: cp -r build ../build
 
       - name: On root directory
       - run: npm install
