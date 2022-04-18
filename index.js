@@ -8,6 +8,20 @@ app.use(cors())
 
 const PORT = process.env.PORT || 3001
 
+const path = require("path");
+
+if (process.env.NODE_ENV === "production") {
+
+    app.use(express.static("client/build"));
+
+    app.get("*", (req, res) => {
+
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+
+   });
+
+}
+
 let scores = [
     {
         name: "Mikko",
