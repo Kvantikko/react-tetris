@@ -28,11 +28,11 @@ const generateId = () => {
       : 0
     return maxId + 1
 }
-  
+/*
 app.get('/', (req, res) => {
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
-
+*/
 app.get('/api/scores', (reqquest, response) => {
     if (scores) {
         response.json(scores)
