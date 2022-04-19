@@ -73,7 +73,6 @@ export const movePlayer = ({ delta, position, shape, board }) => {
 
     // onko halutussa paikassa jo palikka
     const collided = hasCollision({
-        
         board,
         position: desiredNextPosition,
         shape

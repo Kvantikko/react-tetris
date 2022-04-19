@@ -35,9 +35,9 @@ app.get('/api/scores/:id', (request, response) => {
 app.post('/api/scores', (request, response) => {
     const body = request.body
     
-    if (!body.name || !body.score) {
+    if (!body.name) {
         return response.status(400).json({ 
-            error: 'missing name or score' 
+            error: 'missing name' 
         })
     }
     

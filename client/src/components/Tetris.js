@@ -17,11 +17,10 @@ import useGameStats from "../hooks/useGameStats"
  * Tetris component is a children component of Game component. 
  * Renders Board, Gamestats and Previews 
  */
-
 const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
-    const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
+    const [board, ] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
     
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
         gameStats
@@ -73,10 +72,10 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     }
 
     const style = {
-       marginLeft: '1vw', 
-       display: 'flex',
-      flexDirection: 'column',
-       marginTop: '4vh',
+        marginLeft: '1vw', 
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: '4vh',
         height: '90vh'
     }
 

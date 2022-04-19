@@ -1,7 +1,7 @@
 import "./ScoreForm.css"
 
 import { useContext } from "react"
-import { Context } from "./Game"
+import { Context } from './Context'
 
 /**
  * Form for writing player name after a game has ended

@@ -1,13 +1,12 @@
 //import "./Game.css"
 
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 
 import Menu from "./Menu"
 import Tetris from "./Tetris"
 
 import useGameOver from "../hooks/useGameOver"
-
-export const Context = createContext();
+import { Context } from './Context'
 
 /**
  * Game component is the children component of App component. 

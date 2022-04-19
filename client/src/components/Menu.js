@@ -7,7 +7,7 @@ import ScoreForm from "./ScoreForm"
 
 import scoreService from "../services/scores"
 
-import { Context } from "./Game"
+import { Context } from './Context';
 
 /**
  * Menu renders scoreboard, startbutton and ability to save your name/score after a game

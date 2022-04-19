@@ -3,7 +3,7 @@ import React, { useEffect } from "react"
 import "./GameStats.css"
 
 import { useContext } from "react"
-import { Context } from "./Game"
+import { Context } from "./Context"
 
 /**
  * Renders the game statistics

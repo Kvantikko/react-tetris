@@ -15,8 +15,11 @@ jobs:
         with:
           node-version: 17.x
     
-      - name: Install, remove, build, copy
+      - name: Install npm, remove old build, build new, copy build to root dir
         run: npm run deploy
+
+      - name: Run unit tests
+        run: npm test
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
