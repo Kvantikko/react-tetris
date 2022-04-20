@@ -42,11 +42,6 @@ test('saving score works', () => {
     userEvent.type(input, 'Mikko')
     userEvent.click(saveButton)
 
-    //const savedScore = screen.getByText('Mikko 0')
-   // expect(savedScore).toBeDefined()
-    
-   
-    
    expect(container.getElementsByClassName('Scores').length).toBe(1) // eslint-disable-line
    
 })
