@@ -52,8 +52,8 @@ Nuoli vasemmalle - vie tetris-palikkaa vasemmalle
 Tetris on hyvin suosittu peli, mutta mikäli se ei ole tuttu, niin kerrataan pelin kulku.
 Pelin tarkoitus on asetella tippuvat tetris-palikat niin, että yksi tai useampi rivi on
 täynnä tetris-palikoita. Kun tämä tapahtuu, niin rivi poistuu ja pelaaja saa pisteitä.
-Jos päädytään tilanteeseen, jossa jo sijoitetut tetris-palikat saavuttavat peliruudun yläosan,
-niin peli päättyy.
+Jos päädytään tilanteeseen, jossa jo sijoitetut tetris-palikat saavuttavat peliruudun
+yläosan niin, ettei pelaaja pysty liikkumaan, peli päättyy.
 
 Pelin päätyttyä pelaaja voi tallentaa saamansa pisteet antamalla nimimerkin. Tämä ei ole
 pakollista. Parhaimmat talletetut pisteet näytetään pelin alkuruudussa.
