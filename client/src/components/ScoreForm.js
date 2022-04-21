@@ -5,6 +5,11 @@ import { Context } from './Context'
 
 /**
  * Form for writing player name after a game has ended
+ * @param gamePlayed the state which tells if player just finished a game (gameover, not quit)
+ * @param addScore the function to send score to the backend
+ * @param name input field value
+ * @param handleNameChange function to handle name state change
+ * @returns a form with text input field and save button
  */
 const ScoreForm = ({ gamePlayed, addScore, name, handleNameChange }) => {
     const [val, ] = useContext(Context);

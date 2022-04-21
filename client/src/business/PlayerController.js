@@ -11,7 +11,7 @@ const tryToRotate = ({ board, player, setPlayer }) => {
     const position = player.position;
     const isValidRotation =
         isWithinBoard({ board, position, shape }) &&
-        !hasCollision({ board, position, shape }) // yhdistä nää jotenkin?
+        !hasCollision({ board, position, shape })
   
     if (isValidRotation) {
         setPlayer({
@@ -61,42 +61,51 @@ const tryToMove = ({ board, action, player, setPlayer, setGameOver, setGamePlaye
 }
 
 /**
- * @returns next position of attempted move. If colliding, positions stays the same
+ * Moves the player tetromino to a new position.
+ * @param delta position change
+ * @param postion players position on the board
+ * @param shape tetromino shape as 2d array
+ * @param board as 2d array
+ * @returns next position of attempted move and collision status
  */
 export const movePlayer = ({ delta, position, shape, board }) => {
   
-    // haluttu paikka
+    // desired position
     const desiredNextPosition = {
         row: position.row + delta.row,
         column: position.column + delta.column
     }   
 
-    // onko halutussa paikassa jo palikka
+    // is desired position already occupied
     const collided = hasCollision({
         board,
         position: desiredNextPosition,
         shape
     })
     
-    // onko palikka halutun paikan jälkeen vielä laudalla
+    // is desired position within board
     const isOnBoard = isWithinBoard({
         board,
         position: desiredNextPosition,
         shape
     })
 
-    // jos ei ole laudalla tai törmäsi toisen palikan kanssa -> estetään siirto
+    // if not on board or collided -> don't allow the move
     const preventMove = !isOnBoard || (isOnBoard && collided)
-    // seuraava positio on nykyinen jos estettiin siirto, muuten haluttu positio
+    // the next position is the current one if the move was prevented, otherwise it's the
+    // desired postiton
     const nextPosition = preventMove ? position : desiredNextPosition
   
-    // jos liikkuu alas ja osui toiseen palikkaan tai lattiaan -> isHit = true
+    // if the player tetrominoe moves downwards and hits other tetrominoe -> isHit = true
     const isMovingDown = delta.row > 0;
     const isHit = isMovingDown && (collided || !isOnBoard)
   
     return { collided: isHit, nextPosition }
 }
 
+/**
+ * Player moves the tetrominoe via this function
+ */
 export const playerController = ({
     action,
     board,

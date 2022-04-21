@@ -2,13 +2,14 @@ import axios from 'axios'
 
 const baseUrl = '/api/scores'
 
-const getAll = () => {
-  return axios.get(baseUrl)
-}
+/**
+ * Gets all the scores from server
+ */
+const getAll = () => axios.get(baseUrl)
 
-const create = newObject => {
-  return axios.post(baseUrl, newObject)
-}
+/**
+ * Posts a new score object to server
+ */
+const create = newObject => axios.post(baseUrl, newObject)
 
-
-export default { getAll: getAll, create: create, }
+export default { getAll: getAll, create: create }

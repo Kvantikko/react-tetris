@@ -1,3 +1,6 @@
+/**
+ * Actions for keycodes
+ */
 export const Action = {
     Rotate: "Rotate",
     Down: "Down",
@@ -7,7 +10,9 @@ export const Action = {
     Quit: "Quit",
 }
   
-// Keycodes are linked to Actions
+/**
+ * Linking keycode to action
+ */
 export const Key = {
     ArrowUp: Action.Rotate,
     ArrowDown: Action.Down,
@@ -17,6 +22,13 @@ export const Key = {
     KeyQ: Action.Quit,
 }
 
+/**
+ * Checks if player action is Down action
+ * @returns true is pressed key is arrowDown key
+ */
 export const actionIsDrop = (action) => Action.Down.includes(action)
 
+/**
+ * @returns corresponding action for a keypress if it exists 
+ */
 export const actionForKey = (keyCode) => Key[keyCode]

@@ -7,11 +7,16 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 
-
+/**
+ * Sends the frontend UI to clientside using app.use(express.static('build'))
+ */
 app.get('/', (req, res) => {
     res.send('<h1>Hello World! Täs pitäis näkyy frontti... </h1>')
 })
 
+/**
+ * Sends all the scores to client
+ */
 app.get('/api/scores', (reqquest, response) => {
     if (scores) {
         response.json(scores)
@@ -19,11 +24,13 @@ app.get('/api/scores', (reqquest, response) => {
         response.status(404).end()
     } 
 })
-  
+
+/**
+ * Sends a specific score entry by id to client
+ */
 app.get('/api/scores/:id', (request, response) => {
     const id = Number(request.params.id)
     const score = scores.find(note => note.id === id)
-    response.json(score)
 
     if (score) {
         response.json(score)
@@ -32,6 +39,9 @@ app.get('/api/scores/:id', (request, response) => {
     }
 })
 
+/**
+ * Posts a new entry to database
+ */
 app.post('/api/scores', (request, response) => {
     const body = request.body
     
@@ -52,6 +62,10 @@ app.post('/api/scores', (request, response) => {
     response.json(score)
 })
 
+/**
+ * Dummy data before database connection implementation. If database is not implemented
+ * before the project deadline, will use this array as the "database".
+ */
 let scores = [
     {
         name: "Mikko",
@@ -66,6 +80,9 @@ let scores = [
     
 ]
 
+/**
+ * Generates id for a new score entry
+ */
 const generateId = () => {
     const maxId = scores.length > 0
       ? Math.max(...scores.map(n => n.id))

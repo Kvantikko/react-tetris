@@ -3,9 +3,12 @@ import "./Board.css"
 import BoardCell from "./BoardCell"
 
 /**
+ * @param board the board object
  * @returns the tetris board with boardcells
  */
 const Board = ({ board }) => {
+    
+    // makes the css grid repeat 
     const boardStyle = {
         gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
         gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`

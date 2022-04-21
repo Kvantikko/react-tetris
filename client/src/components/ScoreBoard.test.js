@@ -7,7 +7,6 @@ import ScoreBoard from './ScoreBoard'
 test('renders scoreboard', () => {
    const highScores = []
     
-   // const { container } = 
     render(<ScoreBoard scores={highScores}/> )
     
     const txt = screen.getByText('High Scores')

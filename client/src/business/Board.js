@@ -2,12 +2,13 @@ import defaultCell from "./Cell"
 import { transferToBoard } from "./Tetrominoes"
 
 /**
- * Builds the gameboard and preview boards.
- * @returns board object which has an array of 20 arrays (the rows), and
+ * Builds the initial gameboard and preview boards.
+ * @param rows how many rows the board has
+ * @param rows how many columns the board has
+ * @returns board object which has an 2d array representation of the board, and
  * size meanning how many rows and columns the board has
  */
 export const buildBoard = ({ rows, columns }) => {
-    // every row of the board (20 rows = 20 arrays), 
     const builtRows = Array.from({ length: rows }, () =>
         Array.from({ length: columns }, () => ({ ...defaultCell }))
     )
@@ -18,9 +19,18 @@ export const buildBoard = ({ rows, columns }) => {
     }
 }
 
+/**
+ * Builds the gameboard again after application state has changed.
+ * @param board the game board as 2d array
+ * @param player player state as object
+ * @param resetPlayer the function to reset player at the top of the board 
+ * @param addLinesCleared the function to change game stat's state 
+ * @returns new board object with changes reflecting application's state changes
+ */
 export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
-    const { tetromino, position } = player;
+    const { tetromino, position } = player
   
+    // if cell is not occupied -> defaultcell
     let rows = board.rows.map((row) =>
         row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
     )
@@ -38,6 +48,8 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     
     let linesCleared = 0
     
+    // Building a new set of rows. If row was cleared -> linesCleared++ -> insert new blank
+    // line at the beginning
     rows = rows.reduce((accumulator, row) => {
         if (row.every((column) => column.occupied)) {
             linesCleared++
@@ -54,7 +66,7 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     }
 
     if (player.collided || player.isFastDropping) {
-        resetPlayer();
+        resetPlayer()
     }
 
     return {
@@ -63,7 +75,13 @@ export const nextBoard = ({ board, player, resetPlayer, addLinesCleared }) => {
     }
 }
 
-// voisko nää kaksi seuraavaa yhdistää
+/**
+ * Checks if the player tetromino collides with other tetrominoes.
+ * @param board the game board as 2d array
+ * @param position the postion of the player
+ * @param shape tetrominoe type
+ * @returns true if collides, false if doesn't
+ */
 export const hasCollision = ({ board, position, shape }) => {
     for (let y = 0; y < shape.length; y++) {
         const row = y + position.row
@@ -85,7 +103,14 @@ export const hasCollision = ({ board, position, shape }) => {
   
     return false
 }
-  
+
+/**
+ * Checks if the player tetromino is within the board edges
+ * @param board the game board as 2d array
+ * @param position the postion of the player
+ * @param shape tetrominoe type
+ * @returns true if within board, false if outside
+ */
 export const isWithinBoard = ({ board, position, shape }) => {
     for (let y = 0; y < shape.length; y++) {
         const row = y + position.row
@@ -94,8 +119,7 @@ export const isWithinBoard = ({ board, position, shape }) => {
             if (shape[y][x]) {
                 const column = x + position.column
                 
-                const isValidPosition = 
-                    board.rows[row] && board.rows[row][column]
+                const isValidPosition = board.rows[row] && board.rows[row][column]
         
                 if (!isValidPosition) return false
             }

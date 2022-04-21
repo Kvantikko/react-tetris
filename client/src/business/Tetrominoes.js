@@ -1,10 +1,5 @@
 /**
- * All tetriminoes: {
- *      tetrimino: {
- *          shape: [[],[],[]]
- *          classname: string
- *      }
- * }
+ * All tetriminoes represented as 2d array
  */
 export const TETROMINOES = {
     I: {
@@ -79,8 +74,6 @@ export const randomTetromino = () => {
 
 /**
  * Transfers tetrimino to the board
- * @param {*} param0 
- * @returns 
  */
 export const transferToBoard = ({ 
     className,
@@ -89,7 +82,7 @@ export const transferToBoard = ({
     rows,
     shape
 }) => {
-    // shape is 2D array representation of the shape
+    // shape is 2D array representation of the tetrominoe shape
     // for each row in this representaion (y is row number) ->
     //     for each cell in this row (x is index of row) ->
     shape.forEach((row, y) => {
@@ -106,15 +99,18 @@ export const transferToBoard = ({
     return rows;
 }
 
-// Rotating CLOCKWISE!!!
+/**
+ * Rotates the player tetrominoe clockwise
+ */
 export const rotate = ({ shape, direction }) => {
     // Transpose rows and columns
-    const newShape = shape.map((_, index) => {
-        return shape.map((column) => {
-            return column[index]
-        })
-    })
+    const newShape = shape.map((_, index) => 
+        shape.map((column) => 
+            column[index]
+        )
+    )
 
+    // Reverso rows to get a rotated matrix
     if (direction > 0) return newShape.map((row) => row.reverse())
   
     return newShape.reverse();

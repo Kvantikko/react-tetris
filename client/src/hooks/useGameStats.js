@@ -7,6 +7,9 @@ const buildGameStats = () => ({
     points: 0
 })
 
+/**
+ * useGameStats hook renders new stats everytime a line is cleared
+ */
 const useGameStats = () => {
     const [gameStats, setGameStats] = useState(buildGameStats())
 

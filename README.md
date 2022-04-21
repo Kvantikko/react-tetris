@@ -43,12 +43,12 @@ Mentäessä sovelluksen osoitteeseen, paineteaan
 "Play Tetris" -nappia, jolloin peli alkaa. Pelin aikana peli reagoi seuraaviin 
 näppäimistön painikkeisiin:
 
-Q - lopettaa pelin
-P - pistää pelin pauselle/pauselta pois
-Nuoli ylös - kääntää tetrispalikkaa myötäpäivään
-Nuoli alas - vie tetris palikkaa alaspäin
-Nuoli oikealle - vie tetrispalikkaa oikealle
-Nuoli vasemmalle - vie tetrispalikkaa vasemmalle
+Q - lopettaa pelin 
+P - pistää pelin pauselle/pauselta pois 
+Nuoli ylös - kääntää tetrispalikkaa myötäpäivään 
+Nuoli alas - vie tetris palikkaa alaspäin 
+Nuoli oikealle - vie tetrispalikkaa oikealle 
+Nuoli vasemmalle - vie tetrispalikkaa vasemmalle 
 
 Tetris on hyvin suosittu peli, mutta mikäli se ei ole tuttu, niin kerrataan pelin kulku.
 Pelin tarkoitus on asetella tippuvat tetrispalikat niin, että yksi tai useampi rivi on

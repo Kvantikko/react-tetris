@@ -6,14 +6,15 @@ import { useContext } from "react"
 import { Context } from "./Context"
 
 /**
- * Renders the game statistics
+ * @returns list of game stats: level, lines to level and points
  */
 const GameStats = ({ gameStats }) => {
     const [, setVal] = useContext(Context);
     const { level, points, linesCompleted, linesPerLevel } = gameStats
     const linesToLevel = linesPerLevel - linesCompleted
 
-    // useEffect is executed after rendering -> prevents error
+    // useEffect hook is always executed after rendering -> prevents error in this case
+    // when trying to set context state.
     useEffect(() => {
         setVal(points)
     },[points, setVal])

@@ -5,11 +5,10 @@ import { randomTetromino } from "../business/Tetrominoes"
 const buildPlayer = (previous) => {
     let tetrominoes
 
-  // jos on jo pelaaja
     if (previous) {
         tetrominoes = [...previous.previewTetrominoes]
-        tetrominoes.unshift(randomTetromino()) // asetetaa yksi uusi tetronimo preview taulukkoon
-    } else { // luodaan uusi
+        tetrominoes.unshift(randomTetromino())
+    } else {
         tetrominoes = Array(4).fill(null).map(index => {
             return randomTetromino()
         })
@@ -25,6 +24,10 @@ const buildPlayer = (previous) => {
     }
 }
 
+/**
+ * usePlayer hook is responsible for the player tetromino positinon and incoming preview
+ * tetrominoes. The state changes everytime when player tetromino moves.
+ */
 const usePlayer = () => {
     const [player, setPlayer] = useState(buildPlayer())
     

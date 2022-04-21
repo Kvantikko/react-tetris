@@ -4,6 +4,10 @@ const defaultDropTime = 1000;
 const minimumDropTime = 100;
 const speedIncrement = 50;
 
+/**
+ * useDropTime hook is responsible the time it takes for the tetrominoe to fall.
+ * Default is 1 second and it decreases as the levels go up.
+ */
 const useDropTime = ({ gameStats }) => {
     const [dropTime, setDropTime] = useState(defaultDropTime)
     const [previousDropTime, setPreviousDropTime] = useState()
@@ -22,7 +26,7 @@ const useDropTime = ({ gameStats }) => {
     }, [dropTime, setPreviousDropTime])
 
     useEffect(() => {
-        // focus when game starts
+        // focus on tetris div when game starts
         document.getElementById("Tetris").focus()
         const speed = speedIncrement * (gameStats.level - 1)
         const newDropTime = Math.max(defaultDropTime - speed, minimumDropTime)

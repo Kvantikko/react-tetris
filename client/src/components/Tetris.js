@@ -14,27 +14,32 @@ import useInterval from "../hooks/useInterval"
 import useGameStats from "../hooks/useGameStats"
 
 /**
- * Tetris component is a children component of Game component. 
- * Renders Board, Gamestats and Previews 
+ * Tetris component is a children component of Game component. This component is rendered
+ * if gameover state is false
+ * @param rows board's row amount
+ * @param columns board's column amount
+ * @param setGameOver function to set gameOver state
+ * @param setGamePlayed function to set gamePlayed state
+ * @return Board, Gamestats and Previews 
  */
 const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
     const [gameStats, addLinesCleared] = useGameStats() 
     const [player, setPlayer, resetPlayer] = usePlayer()
     const [board, ] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared })
-    
-    const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
-        gameStats
-    })
+    const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({ gameStats })
 
+    // Save way to use timeouts with react. Calling handleInput every dropTime (default 1 sec).
     useInterval(() => {
         handleInput({ action: Action.Down })
     }, dropTime)
 
+    // When a key comes up
     const onKeyUp = ({ code }) => {
         const action = actionForKey(code)
         if (actionIsDrop(action)) resumeDropTime()
     }
     
+    // When a key is pressed
     const onKeyDown = ({ code }) => {
         const action = actionForKey(code)
         
@@ -50,16 +55,11 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
             if (actionIsDrop(action)) {
                 pauseDropTime()
             }
-            /*
-            if (!dropTime) {
-                return
-            }
-            */
             handleInput({ action })
         }
-        //handleInput({ action })
     }
 
+    // Delegates the action to playerController which decides what to do with it
     const handleInput = ({ action }) => {
         playerController({
             action,
@@ -71,6 +71,7 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
         })
     }
 
+    // Stats div style
     const style = {
         marginLeft: '1vw', 
         display: 'flex',

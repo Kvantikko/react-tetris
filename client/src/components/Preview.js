@@ -9,9 +9,10 @@ import { transferToBoard } from "../business/Tetrominoes"
 
 /**
  * Shows a preview of incoming tetrimino
+ * @param tetromino one of three available preview tetrominoes
+ * @returns small preview board with a tetrommino
  */
-
-const Preview = ({ tetromino, index }) => {
+const Preview = ({ tetromino }) => {
     const { shape, className } = tetromino
 
     const board = buildBoard({ rows: 4, columns: 4 })

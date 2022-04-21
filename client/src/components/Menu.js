@@ -10,8 +10,13 @@ import scoreService from "../services/scores"
 import { Context } from './Context';
 
 /**
- * Menu renders scoreboard, startbutton and ability to save your name/score after a game
- * has ended.
+ * @param resetGameOver the function to set gameOver state false
+ * @param gamePlayed the state of did player just finish a game
+ * @param setGamePlayed the function to set gamePlayed state
+ * Score parameters are the scores that have been fetched from backend in component App.js
+ * @returns scoreboard, startbutton and the ability to save your name/score after a game
+ * has ended (ScoreForm component). It also sends a new score to backend via imported 
+ * scoreService.
  */
 const Menu = ({
     resetGameOver,
@@ -31,6 +36,7 @@ const Menu = ({
     }
 
     const addScore = (event) => {
+        // Prevents unneccessary rendering.
         event.preventDefault()
         
         const obj = {
@@ -39,6 +45,7 @@ const Menu = ({
         }
         setGamePlayed(false)
     
+        // Send created score object to server and sort the sccores (highest on top).
         scoreService
             .create(obj)
             .then(response => {
@@ -53,6 +60,7 @@ const Menu = ({
             })
     }
 
+    // Name input state change.
     const handleNameChange = (event) => {
         setNewName(event.target.value)
     }
