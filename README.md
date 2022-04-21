@@ -5,9 +5,8 @@ https://utu-mike-react-tetris.herokuapp.com/
 # React Tetris
 
 React Tetris on MERN stackin teknologioihin perustuva web-peli. MERN Stackilla tarkoitetaan
-webteknologioita: MongoDB, Express.js, React ja Node.js (huom. kirjoitushetkellä MongoDB:n
-käyttö on vielä epävarmaa, sillä projektin aikaraja alkaa tulla vastaan). Peli isännöidään
-Herokun serverillä dokumentin alussa olevassa osoitteessa.
+webteknologioita: MongoDB, Express.js, React ja Node.js. Peli isännöidään
+Herokun serverillä yllä olevassa osoitteessa.
 
 Node.js on avoimen lähdekoodin alustariippumaton ajoympäristö JavaScript-koodin
 suorittamiseen palvelimella. Node.js edustaa "JavaScript kaikkialla" -paradigmaa, joka 
