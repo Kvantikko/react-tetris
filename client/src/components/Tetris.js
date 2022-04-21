@@ -96,7 +96,7 @@ const Tetris = ({ rows, columns, setGameOver, setGamePlayed  }) => {
                 <GameStats gameStats={gameStats} />
             </div>
         </div>
-        )
-    }
+    )
+}
 
 export default Tetris

@@ -77,9 +77,6 @@ const Menu = ({
                 Play Tetris
             </button>
             <ScoreBoard scores={highScores}/>
-            <button className="ButtonScore" >
-                Full Scoreboard
-            </button>
         </div>
     )
 }

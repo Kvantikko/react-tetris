@@ -48,7 +48,7 @@ P - pistää pelin pauselle/pauselta pois\
 Nuoli ylös - kääntää tetris-palikkaa myötäpäivään\
 Nuoli alas - vie tetrispalikkaa alaspäin\
 Nuoli oikealle - vie tetris-palikkaa oikealle\
-Nuoli vasemmalle - vie tetris-palikkaa vasemmalle\
+Nuoli vasemmalle - vie tetris-palikkaa vasemmalle
 
 Tetris on hyvin suosittu peli, mutta mikäli se ei ole tuttu, niin kerrataan pelin kulku.
 Pelin tarkoitus on asetella tippuvat tetris-palikat niin, että yksi tai useampi rivi on
