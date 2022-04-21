@@ -21,14 +21,7 @@ app.get('/', (req, res) => {
 app.get('/api/scores', (reqquest, response) => {
     Score.find({}).then(scores => {
         response.json(scores)
-      })
-    /*
-    if (scores) {
-        response.json(scores)
-    } else {
-        response.status(404).end()
-    } 
-    */
+    })
 })
 
 /**
@@ -49,52 +42,8 @@ app.post('/api/scores', (request, response) => {
             response.json(savedAndFormattedScore)
         })
         .catch(error => console.log(error))
-
-    /*
-    if (!body.name) {
-        return response.status(400).json({ 
-            error: 'missing name' 
-        })
-    }
-    
-    const score = {
-        name: body.name,
-        score: body.score,
-        id: generateId(),
-    }
-
-    scores = scores.concat(score)
-
-    response.json(score)
-    */
 })
 
-/**
- * Dummy data before database connection implementation. If database is not implemented
- * before the project deadline, will use this array as the "database".
- 
-let scores = [
-    {
-        name: "Mikko",
-        score: 100,
-        id: 1
-    },
-    {
-        name: "Ilona",
-        score: 200,
-        id: 2
-    },
-    
-]
-
-
-const generateId = () => {
-    const maxId = scores.length > 0
-      ? Math.max(...scores.map(n => n.id))
-      : 0
-    return maxId + 1
-}
-*/
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
