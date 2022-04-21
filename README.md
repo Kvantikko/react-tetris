@@ -28,11 +28,11 @@ tapauksessa dokumenttitietokanta. Dokumenttitietokanta voidaan nähdä helppokä
 kuin relaatiotietokanta.
 https://www.mongodb.com/
 
-React on ilmainen ja avoimen lähdekoodin käyttöliittymän JavaScript-kirjasto 
-käyttöliittymäkomponentteihin perustuvien käyttöliittymien rakentamiseen. Sitä ylläpitävät
-Meta ja yksittäisten kehittäjien ja yritysten yhteisö. React on nykyisin yksi yleisimmistä
-JavaScript kehyksistä webmaailmassa. Sen suosiota selittää muun muassa virtuaalinen DOM,
-joka tekee isosta sovelluksesta nopeamman.
+React on ilmainen avoimen lähdekoodin JavaScript-kirjasto käyttöliittymäkomponentteihin
+perustuvien käyttöliittymien rakentamiseen. Sitä ylläpitävät Meta ja yksittäisten
+kehittäjien ja yritysten yhteisö. React on nykyisin yksi yleisimmistä JavaScript kehyksistä
+webmaailmassa. Sen suosiota selittää muun muassa virtuaalinen DOM, joka tekee isosta
+sovelluksesta nopeamman.
 https://reactjs.org/
 
 
