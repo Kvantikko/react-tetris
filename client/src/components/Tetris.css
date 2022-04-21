@@ -1,7 +1,7 @@
 .Tetris {
     height: 100%;
     width: 100%;
-    background-color: green;
+    background-color: rgb(0, 0, 0);
     overflow: auto;
     display: flex;
     justify-content: center;
