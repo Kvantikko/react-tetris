@@ -1,6 +1,8 @@
 # Pelin verkko-soite
 
-https://utu-mike-react-tetris.herokuapp.com/
+UUSI: https://react-tetris.fly.dev/
+
+(vanha https://utu-mike-react-tetris.herokuapp.com/)
 
 # React Tetris
 
